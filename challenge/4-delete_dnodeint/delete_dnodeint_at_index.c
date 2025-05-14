@@ -46,11 +46,11 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
     else
     {
         // Case 2: Deleting any node except the first
-        tmp->prev->next = tmp->next;  // Link previous node to next node
-        if (tmp->next != NULL)        // If not the last node, link next node's prev
+        if (tmp->next != NULL)
         {
-            tmp->next->prev = tmp->prev;
+            tmp->next->prev = tmp->prev;  // Link next node's prev to previous node
         }
+        tmp->prev->next = tmp->next;  // Link previous node's next to next node
     }
 
     free(tmp);  // Free the memory of the deleted node
